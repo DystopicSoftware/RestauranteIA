@@ -28,7 +28,7 @@ Se recomienda encarecidamente el uso de **Conda** para gestionar este entorno ai
 Sigue estos pasos para replicar el entorno de desarrollo exacto:
 
 ### 1. Clonar el repositorio
-```bash
+
 git clone https://github.com/TU_USUARIO/RestauranteIA.git
 cd RestauranteIA
 
