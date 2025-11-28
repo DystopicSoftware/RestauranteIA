@@ -58,13 +58,29 @@ python app.py
 
 # 🏗️ Estructura del Proyecto
 /agents: Configuración de los agentes de LangChain (Admin/Cliente).
+
+
 /config: Configuraciones generales y conexión con el LLM.
+
+
 /data: Datos iniciales (seeding) de productos e inventario.
+
+
 /database: Gestión de conexión y persistencia con SQLite.
+
+
 /funciones: Lógica de negocio pura (Cálculo de KPIs, operaciones de inventario).
+
+
 /tools: Herramientas (Tools) que conectan las funciones con la IA.
+
+
 /utils: Utilidades de procesamiento de texto y fuzzy matching.
+
+
 📄 Notas de Migración
+
+
 Si vienes del notebook original de Colab, notarás que las celdas monolíticas se han separado en módulos .py específicos. Esto facilita la depuración y permite que la aplicación crezca sin volverse inmanejable.
 
 Hecho con 🍔 y Python.
