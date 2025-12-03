@@ -1,4 +1,6 @@
 import pandas as pd
+from data.productos import precio_venta, costo_unitario
+
 
 # ==========================================
 # VENTAS INICIALES (Historial)
@@ -27,8 +29,15 @@ _crudas = [
 ]
 
 # Construcción del DataFrame
+
 ventas = pd.DataFrame(_crudas, columns=["Fecha", "Producto", "Cantidad"])
 ventas["Fecha"] = pd.to_datetime(ventas["Fecha"])
 
+# Mapear datos directamente aquí para la primera ejecución
+ventas["Precio_Unit"] = ventas["Producto"].map(precio_venta)
+ventas["Costo_Unit"] = ventas["Producto"].map(costo_unitario)
+ventas["Total"] = ventas["Cantidad"] * ventas["Precio_Unit"]
+ventas["Ganancia"] = (ventas["Precio_Unit"] - ventas["Costo_Unit"]) * ventas["Cantidad"]
+
 # Nota: Las columnas Precio_Unit, Costo_Unit, Total y Ganancia 
-# se calcularán en database/db_manager.py al cargar
+# se calcularán en database/db_manager.py al cargar las ventas.

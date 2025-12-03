@@ -1,5 +1,6 @@
 from langchain.tools import Tool
 from funciones import kpis, inventario_ops, graficos, productos_ops, ventas_ops
+from funciones.graficos import generar_grafico_avanzado
 
 # Wrappers para parseo simple
 def _add_ing_wrapper(x):
@@ -25,7 +26,11 @@ herramientas_admin = [
     Tool(name="IngresosPorDia", func=lambda x: kpis.ver_ingresos_por_dia(), description="Reporte ingresos brutos diarios."),
     Tool(name="ProductoMasRentable", func=lambda x: kpis.ver_producto_mas_rentable(), description="Producto que da más ganancia."),
     
-    Tool(name="GenerarGrafico", func=graficos.generar_grafico_avanzado, description="Formato: TIPO,METRICA (ej: barras,ventas)."),
+    Tool(
+        name="GenerarGrafico",
+        func=generar_grafico_avanzado,
+        description="Genera una imagen. La entrada DEBE ser texto plano separado por coma, ej: 'barras,ventas' o 'pastel,productos'. NO uses código."
+    ),
     
     Tool(name="AgregarProducto", func=productos_ops.agregar_producto_desde_texto, description="Nombre|Precio|Costo|Ing1:Q,Ing2:Q"),
     Tool(name="ActualizarPrecio", func=productos_ops.actualizar_precio_producto, description="Nombre|NuevoPrecio"),

@@ -7,5 +7,6 @@ agente_admin = initialize_agent(
     llm=llm,
     agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION,
     verbose=True,
-    handle_parsing_errors=True
+    handle_parsing_errors=True,
+    max_iterations=5  # <--- AGREGA ESTO
 )
